@@ -34,4 +34,17 @@ MailingListToField::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+       :authentication => :plain,
+       :address => "smtp.mailgun.org",
+       :port => 587,
+       :domain => "florent-test-mailing.mailgun.org",
+       :user_name => "postmaster@florent-test-mailing.mailgun.org",
+       :password => "4wvpmr8v57e2"
+  }
+
 end
